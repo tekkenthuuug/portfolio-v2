@@ -1,0 +1,28 @@
+.header {
+  font-family: var(--secondary-font);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 0;
+
+  & > ul {
+    display: flex;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    color: var(--secondary-text);
+    font-weight: 600;
+
+    list-style: none;
+
+    & > li:not(:nth-child(1)) {
+      margin-left: 2.5rem;
+    }
+  }
+}

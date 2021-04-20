@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --accent: #6937ff;
+  --inside-accent: #fff;
+
+  --primary-text: #221e41;
+  --secondary-text: #7a778d;
+  --primary-text-light: #fff;
+  --secondary-text-light: #cdcbdf;
+
+  --primary-bg: #fbfbfb;
+  --highlight-bg: #f6f6ff;
+  --highlight-bg-dark: #221e40;
+
+  --primary-font: 'Inter';
+  --secondary-font: 'Poppins';
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--primary-bg);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--primary-font);
+  color: var(--primary-text);
+}
+
+p {
+  font-family: var(--secondary-font);
+  color: var(--secondary-text);
+}
+
+.container {
+  width: min(100%, 1170px);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.accent-btn {
+  background-color: var(--accent);
+  color: var(--inside-accent);
+  font-weight: 600;
+  padding: 0.6em 1.9em;
+  border-radius: 0.5em;
+  font-size: 1em;
+}
+
+.animate-clip {
+  clip-path: polygon(0 0, 0 100%, 100% 100%, 0% 100%);
+
+  animation: clip-animation 0.2s 1.5s ease-in forwards;
+  opacity: 0;
+}
+
+@keyframes clip-animation {
+  to {
+    opacity: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
