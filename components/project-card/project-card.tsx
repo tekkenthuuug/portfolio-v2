@@ -1,18 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { MdCallMade, MdLink } from 'react-icons/md';
 import useIsInView from '../../hooks/useIsInView';
 import styles from './project-card.module.scss';
 
 const ProjectCard = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [ref, isInView] = useIsInView<HTMLDivElement>({
-    threshold: 0.15,
-  });
-
-  useEffect(() => {
-    if (isInView) {
-      setIsVisible(true);
+  const [ref] = useIsInView(
+    {
+      threshold: 0.15,
+    },
+    isInView => {
+      if (isInView) {
+        setIsVisible(true);
+      }
     }
-  }, [isInView]);
+  );
 
   let containerClassName = styles['card-container'];
 
@@ -30,8 +32,9 @@ const ProjectCard = () => {
           <li>Express</li>
           <li>Apollo</li>
         </ul>
-        <button className={`accent-btn ${styles['live-btn']}`}>
+        <button className={`accent-btn icon-btn ${styles['live-btn']}`}>
           View live
+          <MdCallMade />
         </button>
       </div>
       <div className={styles.picture}>

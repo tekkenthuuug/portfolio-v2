@@ -102,6 +102,16 @@ p {
   }
 }
 
+.icon-btn {
+  display: flex;
+  align-items: center;
+
+  svg {
+    margin-left: 0.8em;
+    font-size: 1.2em;
+  }
+}
+
 @keyframes accent-btn-gradient {
   0% {
     background-size: 0% 100%;

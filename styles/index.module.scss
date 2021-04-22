@@ -9,6 +9,72 @@
   border-bottom-right-radius: 120px;
 }
 
+.blob {
+  position: absolute;
+  background-color: #ebebfb;
+  transform: translate(12px, 12px);
+  box-shadow: 6px 6px 0px #ddddf8;
+
+  animation: blob-float-animation 3s ease-in alternate infinite,
+    blob-radius-animation 5s linear alternate infinite;
+
+  @for $i from 0 through 3 {
+    &:nth-child(#{$i + 1}n) {
+      animation-delay: #{$i * 0.5}s;
+    }
+  }
+
+  &:nth-child(1) {
+    width: 145px;
+    height: 125px;
+
+    top: 18%;
+    left: 8%;
+
+    border-radius: 73% 27% 36% 64% / 74% 63% 37% 26%;
+  }
+  &:nth-child(2) {
+    width: 140px;
+    height: 90px;
+
+    top: 25%;
+    right: 25%;
+
+    border-radius: 23% 77% 70% 30% / 45% 63% 37% 55%;
+  }
+  &:nth-child(3) {
+    height: 108px;
+    width: 120px;
+
+    top: 45%;
+    right: 15%;
+
+    border-radius: 23% 77% 26% 74% / 10% 38% 62% 90%;
+  }
+  &:nth-child(4) {
+    width: 120px;
+    height: 90px;
+
+    top: 65%;
+    right: 23%;
+
+    border-radius: 28% 72% 26% 74% / 26% 18% 82% 74%;
+  }
+}
+
+@keyframes blob-float-animation {
+  to {
+    transform: translate(6px, 6px);
+    box-shadow: 12px 12px 3px #ddddf8;
+  }
+}
+
+@keyframes blob-radius-animation {
+  to {
+    border-radius: 25% 75% 64% 36% / 77% 50% 50% 23%;
+  }
+}
+
 @media (max-width: 1280px) {
   .hero-background {
     width: 100%;
