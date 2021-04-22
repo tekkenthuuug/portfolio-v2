@@ -34,7 +34,9 @@ const ProjectCard = () => {
           View live
         </button>
       </div>
-      <div className={styles.picture}></div>
+      <div className={styles.picture}>
+        <img src='/trello.svg' />
+      </div>
     </article>
   );
 };

@@ -97,3 +97,24 @@
   margin-top: auto;
   width: fit-content;
 }
+
+@media screen and (max-width: 900px) {
+  .card-container {
+    flex-direction: column-reverse !important;
+    height: 560px;
+
+    & > div {
+      width: 100%;
+      height: 50%;
+    }
+
+    .description {
+      padding: 36px 46px;
+      align-items: flex-start !important;
+
+      .tags {
+        flex-direction: row;
+      }
+    }
+  }
+}
