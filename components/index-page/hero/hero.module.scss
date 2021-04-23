@@ -1,3 +1,5 @@
+@import '../../../styles/utils';
+
 .greeting-container {
   display: flex;
   align-items: center;
@@ -26,7 +28,9 @@
 }
 
 .short {
-  font-size: 22px;
+  @include clipAnimation(1.5s);
+
+  font-size: 1.37em;
   max-width: 656px;
   margin-top: 2.5rem;
 }

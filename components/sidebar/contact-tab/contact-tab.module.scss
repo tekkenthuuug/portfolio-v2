@@ -1,0 +1,14 @@
+@import '../../../styles/utils';
+
+.container {
+  @include clipAnimation();
+}
+
+.title {
+  font-size: 2.25em;
+  font-weight: 600;
+}
+
+.info {
+  margin-top: 1.25rem;
+}

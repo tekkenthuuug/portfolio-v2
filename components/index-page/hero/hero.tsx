@@ -25,6 +25,12 @@ const Hero = () => {
     };
   }, []);
 
+  const handleProjectsClick = () => {
+    const projectsRef = document.getElementById('projects');
+
+    window.scrollTo({ behavior: 'smooth', top: projectsRef?.offsetTop });
+  };
+
   let scrollMessageClassName = styles.scroll;
 
   if (displayScrollMessage) scrollMessageClassName += ` ${styles.visible}`;
@@ -40,15 +46,16 @@ const Hero = () => {
           </div>
         </div>
         <h1 className={styles.title}>Enthusiastic Fullstack Web Developer</h1>
-        <p className={styles.short + ' animate-clip'}>
+        <p className={styles.short}>
           High level of personal and professional integrity with the ability to
           easily adapt to changing environments
         </p>
-        <Link href='/#projects'>
-          <button className={`accent-btn ${styles['projects-btn']}`}>
-            See My Projects
-          </button>
-        </Link>
+        <button
+          onClick={handleProjectsClick}
+          className={`accent-btn ${styles['projects-btn']}`}
+        >
+          See My Projects
+        </button>
       </div>
     </section>
   );

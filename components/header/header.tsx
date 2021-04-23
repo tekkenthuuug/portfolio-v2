@@ -2,22 +2,19 @@ import styles from './header.module.scss';
 import Link from 'next/link';
 import { MdEmail } from 'react-icons/md';
 
-const Header = () => {
+interface Props {
+  onContactClick: () => any;
+}
+
+const Header = ({ onContactClick }: Props) => {
   return (
     <header className={`${styles.header}`}>
       <div className='container'>
         <nav className={styles.nav}>
-          <ul>
-            <li>
-              <Link href='/about-me'>About Me</Link>
-            </li>
-          </ul>
-          <Link href='/#contact'>
-            <button className='accent-btn icon-btn'>
-              Contact
-              <MdEmail />
-            </button>
-          </Link>
+          <button className='accent-btn icon-btn' onClick={onContactClick}>
+            Contact
+            <MdEmail />
+          </button>
         </nav>
       </div>
     </header>

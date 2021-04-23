@@ -2,7 +2,11 @@ import React from 'react';
 import { MdEmail } from 'react-icons/md';
 import styles from './footer.module.scss';
 
-const Footer = () => {
+interface Props {
+  onContactClick: () => any;
+}
+
+const Footer = ({ onContactClick }: Props) => {
   return (
     <>
       <div className={styles.background} />
@@ -14,7 +18,10 @@ const Footer = () => {
               Challenge me. <br /> I want to work with you to create innovation.
             </p>
           </div>
-          <button className={`accent-btn icon-btn ${styles['talk-btn']}`}>
+          <button
+            className={`accent-btn icon-btn ${styles['talk-btn']}`}
+            onClick={onContactClick}
+          >
             Lets talk
             <MdEmail />
           </button>
