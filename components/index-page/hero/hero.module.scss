@@ -12,13 +12,18 @@
   padding-bottom: 80px;
 }
 
+@include query(small) {
+  .hero-container {
+    padding-bottom: 0px;
+  }
+}
+
 .greeting {
   font-weight: 600;
 }
 
 .title {
   font-size: 3.9em;
-  max-width: 677px;
   margin-top: 1rem;
 
   // first row
@@ -32,15 +37,15 @@
 
   font-size: 1.37em;
   max-width: 656px;
-  margin-top: 2.5rem;
+  margin-top: 2rem;
 }
 
 $visible-clip: polygon(0 100%, 100% 100%, 100% 0, 0 0);
 $hidden-clip: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
 
 .scroll {
-  margin-left: 5rem;
-  font-size: 18px;
+  margin-left: 3em;
+  font-size: 1.12em;
   font-family: var(--secondary-font);
   clip-path: $hidden-clip;
   display: flex;

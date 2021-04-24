@@ -10,12 +10,12 @@ const Footer = ({ onContactClick }: Props) => {
   return (
     <>
       <div className={styles.background} />
-      <footer className={`${styles.footer} container`} id='contact'>
+      <footer className={`${styles.footer} container`}>
         <div className={styles.challenge}>
           <div>
             <h1>Interested in Collaboration?</h1>
             <p>
-              Challenge me. <br /> I want to work with you to create innovation.
+              Challenge me <br /> I want to work with you to create innovation
             </p>
           </div>
           <button
@@ -27,9 +27,6 @@ const Footer = ({ onContactClick }: Props) => {
           </button>
         </div>
         <div className={styles.sep} />
-        <div className={styles.socials}>
-          <h1>Reach me out on my socials</h1>
-        </div>
       </footer>
     </>
   );

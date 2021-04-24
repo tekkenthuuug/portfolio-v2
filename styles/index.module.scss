@@ -1,3 +1,5 @@
+@import '../styles/utils';
+
 .hero-background {
   position: absolute;
   top: 0;
@@ -12,15 +14,15 @@
 .blob {
   position: absolute;
   background-color: #ebebfb;
-  transform: translate(12px, 12px);
+  transform: translate(14px, 14px);
   box-shadow: 6px 6px 0px #ddddf8;
 
-  animation: blob-float-animation 3s ease-in alternate infinite,
+  animation: blob-float-animation 3s linear alternate infinite,
     blob-radius-animation 5s linear alternate infinite;
 
   @for $i from 0 through 3 {
     &:nth-child(#{$i + 1}n) {
-      animation-delay: #{$i * 0.5}s;
+      animation-delay: #{$i * 1}s;
     }
   }
 
@@ -62,20 +64,26 @@
   }
 }
 
+@include query(medium) {
+  .blob {
+    display: none;
+  }
+}
+
 @keyframes blob-float-animation {
   to {
     transform: translate(6px, 6px);
-    box-shadow: 12px 12px 3px #ddddf8;
+    box-shadow: 14px 14px 4px #ddddf8;
   }
 }
 
 @keyframes blob-radius-animation {
   to {
-    border-radius: 25% 75% 64% 36% / 77% 50% 50% 23%;
+    border-radius: 100%;
   }
 }
 
-@media (max-width: 1280px) {
+@include query(large) {
   .hero-background {
     width: 100%;
     border-radius: 0;

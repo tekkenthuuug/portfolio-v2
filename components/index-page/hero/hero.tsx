@@ -45,7 +45,10 @@ const Hero = () => {
             <div />
           </div>
         </div>
-        <h1 className={styles.title}>Enthusiastic Fullstack Web Developer</h1>
+        <h1 className={styles.title}>
+          Enthusiastic Fullstack <br />
+          Web Developer
+        </h1>
         <p className={styles.short}>
           High level of personal and professional integrity with the ability to
           easily adapt to changing environments

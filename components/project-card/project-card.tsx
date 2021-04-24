@@ -1,9 +1,15 @@
 import { useState } from 'react';
-import { MdCallMade, MdLink } from 'react-icons/md';
+import { MdCallMade } from 'react-icons/md';
 import useIsInView from '../../hooks/useIsInView';
+import { IProject } from '../../types';
+import ExternalLink from '../external-link/external-link';
 import styles from './project-card.module.scss';
 
-const ProjectCard = () => {
+interface Props {
+  project: IProject;
+}
+
+const ProjectCard = ({ project }: Props) => {
   const [isVisible, setIsVisible] = useState(false);
   const [ref] = useIsInView(
     {
@@ -23,22 +29,25 @@ const ProjectCard = () => {
   return (
     <article className={containerClassName} ref={ref}>
       <div className={styles.description}>
-        <h2>Trello clone</h2>
+        <h2>{project.name}</h2>
         <ul className={styles.tags}>
-          <li>React</li>
-          <li>Next.js</li>
-          <li>GraphQL</li>
-          <li>Typescript</li>
-          <li>Express</li>
-          <li>Apollo</li>
+          {project.tags.map(tag => (
+            <li>{tag}</li>
+          ))}
         </ul>
-        <button className={`accent-btn icon-btn ${styles['live-btn']}`}>
+        <ExternalLink
+          href={project.link}
+          className={`accent-btn icon-btn ${styles['live-btn']}`}
+        >
           View live
           <MdCallMade />
-        </button>
+        </ExternalLink>
       </div>
-      <div className={styles.picture}>
-        <img src='/trello.svg' />
+      <div
+        className={styles.picture}
+        style={{ background: project.background }}
+      >
+        <img src={project.logo} />
       </div>
     </article>
   );

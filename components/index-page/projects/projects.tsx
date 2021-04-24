@@ -1,5 +1,6 @@
 import ProjectCard from '../../project-card/project-card';
 import styles from './projects.module.scss';
+import { projectsData } from './projects.data';
 
 const Projects = () => {
   return (
@@ -9,9 +10,9 @@ const Projects = () => {
     >
       <h1 className={styles.title}>My latest works</h1>
       <div className={styles.projects}>
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
+        {projectsData.map(project => (
+          <ProjectCard project={project} />
+        ))}
       </div>
     </section>
   );

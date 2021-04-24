@@ -6,7 +6,6 @@
 @keyframes animateClipAnimation {
   0% {
     opacity: 0;
-    // clip-path: polygon(0 0, 0 100%, 100% 100%, 0% 100%);
     clip-path: polygon(100% 0, 100% 0, 100% 0, 100% 0, 100% 0);
   }
   50% {
@@ -16,6 +15,19 @@
   100% {
     opacity: 1;
     clip-path: polygon(100% 100%, 100% 0, 0 0, 0 100%, 0 100%);
-    // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+$sizes: (
+  'xsmall': 370px,
+  'small': 600px,
+  'medium': 900px,
+  'large': 1280px,
+  'xlarge': 1800px,
+);
+
+@mixin query($size) {
+  @media screen and (max-width: map-get($sizes, $size)) {
+    @content;
   }
 }

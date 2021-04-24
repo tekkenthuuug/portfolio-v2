@@ -1,3 +1,5 @@
+@import '../styles/utils';
+
 * {
   margin: 0;
   padding: 0;
@@ -76,18 +78,42 @@ p {
 }
 
 .container {
-  width: min(100%, 1170px);
+  width: 1170px;
   margin: 0 auto;
   padding: 0 1.5rem;
+}
+
+@include query(large) {
+  .container {
+    width: min(100%, 1000px);
+  }
+}
+
+@include query(medium) {
+  .container {
+    font-size: 13px;
+  }
+}
+
+@include query(small) {
+  .container {
+    font-size: 11px;
+  }
+}
+
+@include query(xsmall) {
+  .container {
+    font-size: 9px;
+  }
 }
 
 .accent-btn {
   background-color: var(--accent);
   color: var(--inside-accent);
   font-weight: 600;
-  padding: 0.6em 1.9em;
+  padding: 0.7em 1.9em;
   border-radius: 0.5em;
-  font-size: 1em;
+  font-size: max(1em, 13px);
 
   &:hover {
     animation: accent-btn-gradient 1.5s linear infinite;

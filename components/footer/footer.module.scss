@@ -1,3 +1,5 @@
+@import '../../styles/utils';
+
 .footer {
   height: 100vh;
 
@@ -54,14 +56,14 @@
   opacity: 0.15;
 }
 
-@media (max-width: 1280px) {
+@include query(large) {
   .background {
     width: 100%;
     border-radius: 0;
   }
 }
 
-@media (max-width: 900px) {
+@include query(medium) {
   .challenge {
     flex-direction: column;
     align-items: flex-start;

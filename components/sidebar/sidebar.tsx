@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { MdClose, MdEmail } from 'react-icons/md';
+import useClickOutside from '../../hooks/useClickOutside';
 import usePrev from '../../hooks/usePrev';
 import ExternalLink from '../external-link/external-link';
 import Portal from '../portal/portal';
@@ -21,6 +22,7 @@ const Sidebar = ({ isOpened, onClose }: Props) => {
   const [selectedTab, setSelectedTab] = useState<keyof typeof tabsMap>(
     'contact'
   );
+  const [isClosing, setIsClosing] = useState(false);
 
   useEffect(() => {
     document.body.style.overflowY = isOpened ? 'hidden' : 'visible';
@@ -29,6 +31,19 @@ const Sidebar = ({ isOpened, onClose }: Props) => {
       document.body.style.overflowY = 'visible';
     };
   }, [isOpened]);
+
+  const handleClose = () => {
+    if (isOpened) {
+      setIsClosing(true);
+
+      setTimeout(() => {
+        setIsClosing(false);
+        onClose?.();
+      }, 300);
+    }
+  };
+
+  const clickOutsideRef = useClickOutside<HTMLDivElement>(handleClose);
 
   if (!isOpened) {
     return null;
@@ -40,11 +55,15 @@ const Sidebar = ({ isOpened, onClose }: Props) => {
 
   let overlayClassName = styles.overlay;
 
+  if (isClosing) {
+    overlayClassName += ` ${styles.closing}`;
+  }
+
   return (
     <Portal>
       <div className={overlayClassName}>
-        <div className={styles.container}>
-          <MdClose className={styles.close} onClick={onClose} />
+        <div className={styles.container} ref={clickOutsideRef}>
+          <MdClose className={styles.close} onClick={handleClose} />
           <ul className={styles.nav}>
             <li
               className={getTabClassName('contact')}
