@@ -13,6 +13,8 @@ const Layout: React.FC = ({ children }) => {
   const title = 'Maksim Pautsina | Warsaw Web Development';
   const metaDescriptionContent =
     'Maksim Pautsina is a freelance web developer &amp; full stack website developer in Warsaw. Portfolio of web projects.';
+  const metaImageUrl =
+    'https://maksimdev.com/maksim-pautsina-socials-preview.png';
 
   return (
     <>
@@ -28,14 +30,15 @@ const Layout: React.FC = ({ children }) => {
         <meta property='og:type' content='website' />
         <meta property='og:title' content={title} />
         <meta property='og:url' content='https://maksimdev.com' />
-        <meta property='og:image' content='https://maksimdev.com' />
-        <meta property='og:description' content={title} />
+        <meta property='og:image' content={metaImageUrl} />
+        <meta property='og:image:secure_url' content={metaImageUrl} />
+        <meta property='og:description' content={metaDescriptionContent} />
 
         <meta name='twitter:card' content='summary' />
         <meta name='twitter:title' content={title} />
         <meta name='twitter:site' content='@tekkenthuuug' />
         <meta name='twitter:description' content={metaDescriptionContent} />
-        <meta name='twitter:image' content='https://maksimdev.com' />
+        <meta name='twitter:image' content={metaImageUrl} />
         <meta name='twitter:image:alt' content={title} />
 
         <link rel='preconnect' href='https://fonts.gstatic.com' />
