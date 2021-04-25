@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from 'react';
 import Hero from '../components/index-page/hero/hero';
 import Projects from '../components/index-page/projects/projects';
 import Layout from '../components/layout/layout';

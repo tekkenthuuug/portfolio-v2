@@ -1,6 +1,5 @@
-import styles from './header.module.scss';
-import Link from 'next/link';
 import { MdEmail } from 'react-icons/md';
+import styles from './header.module.scss';
 
 interface Props {
   onContactClick: () => any;

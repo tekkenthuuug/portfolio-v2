@@ -1,7 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MdClose, MdEmail } from 'react-icons/md';
 import useClickOutside from '../../hooks/useClickOutside';
-import usePrev from '../../hooks/usePrev';
 import ExternalLink from '../external-link/external-link';
 import Portal from '../portal/portal';
 import AboutTab from './about-tab/about-tab';
