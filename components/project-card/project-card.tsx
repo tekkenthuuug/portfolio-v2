@@ -47,7 +47,7 @@ const ProjectCard = ({ project }: Props) => {
         className={styles.picture}
         style={{ background: project.background }}
       >
-        <img src={project.logo} />
+        <img src={project.logo} alt={project.name} />
       </div>
     </article>
   );

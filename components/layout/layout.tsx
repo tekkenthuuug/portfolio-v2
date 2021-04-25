@@ -1,18 +1,29 @@
-import { useState } from 'react';
+import Head from 'next/head';
+import { useRef, useState } from 'react';
+import useGA from '../../hooks/useGA';
 import Footer from '../footer/footer';
 import Header from '../header/header';
 import Sidebar from '../sidebar/sidebar';
-import Head from 'next/head';
 
 const Layout: React.FC = ({ children }) => {
   const [isSidebarOpened, setIsSidebarOpened] = useState(false);
+  const hasBeenOpened = useRef(false);
+  const ga4 = useGA();
 
-  const openSidebar = () => setIsSidebarOpened(true);
+  const openSidebar = () => {
+    setIsSidebarOpened(true);
+
+    if (!hasBeenOpened.current && ga4) {
+      hasBeenOpened.current = true;
+
+      ga4.gtag('event', 'sidebar_opened');
+    }
+  };
   const closeSidebar = () => setIsSidebarOpened(false);
 
   const title = 'Maksim Pautsina | Warsaw Web Development';
   const metaDescriptionContent =
-    'Maksim Pautsina is a freelance web developer &amp; full stack website developer in Warsaw. Portfolio of web projects.';
+    'Maksim Pautsina is a freelance web developer & full stack website developer in Warsaw. Portfolio of web projects.';
   const metaImageUrl =
     'https://maksimdev.com/maksim-pautsina-socials-preview.png';
 
