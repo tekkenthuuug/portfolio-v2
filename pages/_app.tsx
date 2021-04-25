@@ -1,21 +1,25 @@
 import GA4React from 'ga-4-react';
+import { GA4ReactResolveInterface } from 'ga-4-react/dist/models/gtagModels';
 import Router, { AppProps } from 'next/dist/next-server/lib/router/router';
 import { useEffect, useState } from 'react';
+import GAContext from '../contexts/GAContext';
 import '../styles/globals.scss';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [ga4react] = useState(new GA4React('G-BXM5LE3FPS'));
+  const [GA, setGA] = useState<null | GA4ReactResolveInterface>(null);
 
   useEffect(() => {
     (async () => {
-      try {
-        await ga4react.initialize();
-      } catch {}
+      const GA = new GA4React('G-S42EGBW1R0');
+      const GAResolved = await GA.initialize();
+      setGA(GAResolved);
     })();
+  }, []);
 
+  useEffect(() => {
     const handleRouteChange = (url: string) => {
-      if (ga4react) {
-        ga4react.pageview(url);
+      if (GA) {
+        GA.pageview(url);
       }
     };
 
@@ -24,9 +28,13 @@ function MyApp({ Component, pageProps }: AppProps) {
     return () => {
       Router.events.off('routeChangeComplete', handleRouteChange);
     };
-  }, [ga4react]);
+  }, [GA]);
 
-  return <Component {...pageProps} />;
+  return (
+    <GAContext.Provider value={GA}>
+      <Component {...pageProps} />
+    </GAContext.Provider>
+  );
 }
 
 export default MyApp;

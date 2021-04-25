@@ -1,9 +1,10 @@
-import { useGA4React } from 'ga-4-react';
+import { useContext } from 'react';
+import GAContext from '../contexts/GAContext';
 
 const useGA = () => {
-  const ga4 = useGA4React('G-BXM5LE3FPS');
+  const GA = useContext(GAContext);
 
-  return ga4;
+  return GA;
 };
 
 export default useGA;

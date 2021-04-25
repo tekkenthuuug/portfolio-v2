@@ -8,15 +8,14 @@ import Sidebar from '../sidebar/sidebar';
 const Layout: React.FC = ({ children }) => {
   const [isSidebarOpened, setIsSidebarOpened] = useState(false);
   const hasBeenOpened = useRef(false);
-  const ga4 = useGA();
+  const GA = useGA();
 
   const openSidebar = () => {
     setIsSidebarOpened(true);
-
-    if (!hasBeenOpened.current && ga4) {
+    if (!hasBeenOpened.current && GA) {
       hasBeenOpened.current = true;
 
-      ga4.gtag('event', 'sidebar_opened');
+      GA.gtag('event', 'sidebar_opened');
     }
   };
   const closeSidebar = () => setIsSidebarOpened(false);
