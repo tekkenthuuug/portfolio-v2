@@ -10,8 +10,8 @@ const Projects = () => {
     >
       <h1 className={styles.title}>My latest works</h1>
       <div className={styles.projects}>
-        {projectsData.map(project => (
-          <ProjectCard project={project} />
+        {projectsData.map((project, index) => (
+          <ProjectCard key={index} project={project} />
         ))}
       </div>
     </section>

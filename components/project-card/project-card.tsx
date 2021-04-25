@@ -31,8 +31,8 @@ const ProjectCard = ({ project }: Props) => {
       <div className={styles.description}>
         <h2>{project.name}</h2>
         <ul className={styles.tags}>
-          {project.tags.map(tag => (
-            <li>{tag}</li>
+          {project.tags.map((tag, index) => (
+            <li key={index}>{tag}</li>
           ))}
         </ul>
         <ExternalLink

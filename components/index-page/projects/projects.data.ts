@@ -3,7 +3,7 @@ import { IProject } from '../../../types';
 export const projectsData: IProject[] = [
   {
     name: 'Trello clone',
-    link: 'google.com',
+    link: 'https://vrello.netlify.app',
     tags: ['React', 'Redux', 'Websockets', 'Express', 'MongoDB', 'Redis'],
     background: 'linear-gradient(45deg, #6ea5c5, #0083cf)',
     logo: 'trello.svg',
