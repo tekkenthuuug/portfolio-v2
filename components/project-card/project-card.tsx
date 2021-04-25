@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { MdCallMade } from 'react-icons/md';
-import useGA from '../../hooks/useGA';
 import useIsInView from '../../hooks/useIsInView';
 import { IProject } from '../../types';
 import ExternalLink from '../external-link/external-link';
