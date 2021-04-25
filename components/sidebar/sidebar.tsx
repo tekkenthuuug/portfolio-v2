@@ -6,7 +6,6 @@ import Portal from '../portal/portal';
 import AboutTab from './about-tab/about-tab';
 import ContactTab from './contact-tab/contact-tab';
 import styles from './sidebar.module.scss';
-import { useRouter } from 'next/router';
 
 interface Props {
   isOpened?: boolean;
