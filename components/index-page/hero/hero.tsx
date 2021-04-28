@@ -12,6 +12,8 @@ const Hero = () => {
     timeoutHandle.current !== null && clearTimeout(timeoutHandle.current);
 
     document.removeEventListener('scroll', handleScroll);
+
+    setDisplayScrollMessage(false);
   };
 
   useEffect(() => {
@@ -36,6 +38,8 @@ const Hero = () => {
   let scrollMessageClassName = styles.scroll;
 
   if (displayScrollMessage) scrollMessageClassName += ` ${styles.visible}`;
+
+  console.log(scrollMessageClassName);
 
   return (
     <section className={`container ${styles['hero-container']}`}>
