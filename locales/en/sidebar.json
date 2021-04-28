@@ -1,0 +1,11 @@
+{
+  "contact": {
+    "title": "Let's Build<0/>Something<0/>Together",
+    "location": "Poland, Warsaw"
+  },
+  "about-me": {
+    "title": "Passionate<0/>Attentive<0/>Creative",
+    "text": "I'm currently a freelance Fullstack Web Developer, who has an experience working with clients from all over the world on many diverse projects.",
+    "tech": "My wheelhouse is PERN stack with Typescript, but I'm always looking forward to master new skills."
+  }
+}

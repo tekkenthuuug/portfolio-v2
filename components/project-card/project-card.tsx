@@ -1,3 +1,4 @@
+import useTranslation from 'next-translate/useTranslation';
 import { useState } from 'react';
 import { MdCallMade } from 'react-icons/md';
 import useIsInView from '../../hooks/useIsInView';
@@ -10,6 +11,7 @@ interface Props {
 }
 
 const ProjectCard = ({ project }: Props) => {
+  const { t } = useTranslation('project-card');
   const [isVisible, setIsVisible] = useState(false);
   const [ref] = useIsInView(
     {
@@ -39,7 +41,7 @@ const ProjectCard = ({ project }: Props) => {
           href={project.link}
           className={`accent-btn icon-btn ${styles['live-btn']}`}
         >
-          View live
+          {t('project-link')}
           <MdCallMade />
         </ExternalLink>
       </div>

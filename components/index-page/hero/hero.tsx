@@ -1,9 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import styles from './hero.module.scss';
+import useTranslation from 'next-translate/useTranslation';
+import Trans from 'next-translate/Trans';
 
 const Hero = () => {
   const [displayScrollMessage, setDisplayScrollMessage] = useState(false);
   const timeoutHandle = useRef<null | NodeJS.Timeout>(null);
+  const { t } = useTranslation('hero');
 
   const handleScroll = () => {
     timeoutHandle.current !== null && clearTimeout(timeoutHandle.current);
@@ -38,25 +41,21 @@ const Hero = () => {
     <section className={`container ${styles['hero-container']}`}>
       <div>
         <div className={styles['greeting-container']}>
-          <h3 className={styles.greeting}>Hi! I'm Maksim Pautsina</h3>
+          <h3 className={styles.greeting}>{t('greeting')}</h3>
           <div className={scrollMessageClassName}>
-            Please scroll down
+            {t('scroll')}
             <div />
           </div>
         </div>
         <h1 className={styles.title}>
-          Enthusiastic Fullstack <br />
-          Web Developer
+          <Trans i18nKey='hero:title' components={[<br />]} />
         </h1>
-        <p className={styles.short}>
-          High level of personal and professional integrity with the ability to
-          easily adapt to changing environments
-        </p>
+        <p className={styles.short}>{t('short')}</p>
         <button
           onClick={handleProjectsClick}
           className={`accent-btn ${styles['projects-btn']}`}
         >
-          See My Projects
+          {t('projects')}
         </button>
       </div>
     </section>

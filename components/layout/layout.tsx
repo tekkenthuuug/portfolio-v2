@@ -1,3 +1,4 @@
+import useTranslation from 'next-translate/useTranslation';
 import Head from 'next/head';
 import { useRef, useState } from 'react';
 import useGA from '../../hooks/useGA';
@@ -9,6 +10,7 @@ const Layout: React.FC = ({ children }) => {
   const [isSidebarOpened, setIsSidebarOpened] = useState(false);
   const hasBeenOpened = useRef(false);
   const GA = useGA();
+  const { t } = useTranslation('layout');
 
   const openSidebar = () => {
     setIsSidebarOpened(true);
@@ -20,9 +22,8 @@ const Layout: React.FC = ({ children }) => {
   };
   const closeSidebar = () => setIsSidebarOpened(false);
 
-  const title = 'Maksim Pautsina | Warsaw Web Development';
-  const metaDescriptionContent =
-    'Maksim Pautsina is a freelance web developer & full stack website developer in Warsaw. Portfolio of web projects.';
+  const title = t('title');
+  const metaDescriptionContent = t('description');
   const metaImageUrl =
     'https://maksimdev.com/maksim-pautsina-socials-preview.png';
 

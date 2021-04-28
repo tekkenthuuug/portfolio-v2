@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+
+  & img {
+    cursor: pointer;
+    height: 20px;
+    width: 36px;
+
+    &:not(:nth-child(1)) {
+      margin-left: 1em;
+    }
+  }
+}

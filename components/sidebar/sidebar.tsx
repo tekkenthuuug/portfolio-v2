@@ -1,3 +1,4 @@
+import useTranslation from 'next-translate/useTranslation';
 import React, { useEffect, useState } from 'react';
 import { MdClose, MdEmail } from 'react-icons/md';
 import useClickOutside from '../../hooks/useClickOutside';
@@ -13,11 +14,12 @@ interface Props {
 }
 
 const tabsMap = {
-  contact: ContactTab,
-  'about-me': AboutTab,
+  contact: <ContactTab />,
+  'about-me': <AboutTab />,
 };
 
 const Sidebar = ({ isOpened, onClose }: Props) => {
+  const { t } = useTranslation();
   const [selectedTab, setSelectedTab] = useState<keyof typeof tabsMap>(
     'contact'
   );
@@ -68,16 +70,16 @@ const Sidebar = ({ isOpened, onClose }: Props) => {
               className={getTabClassName('contact')}
               onClick={() => setSelectedTab('contact')}
             >
-              Contact
+              {t('common:contact')}
             </li>
             <li
               className={getTabClassName('about-me')}
               onClick={() => setSelectedTab('about-me')}
             >
-              About me
+              {t('common:about-me')}
             </li>
           </ul>
-          {tabsMap[selectedTab]()}
+          {tabsMap[selectedTab]}
           <div className={styles.footer}>
             <ExternalLink href='https://www.linkedin.com/in/maksim-pautsina/'>
               <img src='/linkedin.svg' />
