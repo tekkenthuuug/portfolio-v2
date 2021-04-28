@@ -1,9 +1,10 @@
 import useTranslation from 'next-translate/useTranslation';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React from 'react';
+// @ts-ignore
 import { locales } from '../../../i18n.js';
 import styles from './language-selector.module.scss';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
 
 const LanguageSelector = () => {
   const { t, lang } = useTranslation('header');
