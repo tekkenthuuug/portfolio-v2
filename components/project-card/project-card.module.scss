@@ -20,15 +20,6 @@
 
   &:nth-child(2n) {
     flex-direction: row-reverse;
-
-    .description {
-      text-align: right;
-      align-items: flex-end;
-    }
-
-    .tags {
-      flex-direction: row-reverse;
-    }
   }
 
   & > div {
@@ -75,7 +66,7 @@
 
   & > li {
     position: relative;
-    font-size: 1.1em;
+    font-size: 0.9em;
     padding: 0.35em 1em;
     color: var(--secondary-text);
     margin-top: 6px;
@@ -126,9 +117,7 @@
     }
 
     .description.description {
-      text-align: left;
       padding: 2.25em 2.8em;
-      align-items: flex-start !important;
       height: 60%;
 
       .tags {

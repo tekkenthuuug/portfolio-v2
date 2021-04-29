@@ -1,7 +1,8 @@
 import useTranslation from 'next-translate/useTranslation';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { MdCallMade } from 'react-icons/md';
 import useIsInView from '../../hooks/useIsInView';
+import useTilt from '../../hooks/useTilt';
 import { IProject } from '../../types';
 import ExternalLink from '../external-link/external-link';
 import styles from './project-card.module.scss';
@@ -13,7 +14,12 @@ interface Props {
 const ProjectCard = ({ project }: Props) => {
   const { t } = useTranslation('project-card');
   const [isVisible, setIsVisible] = useState(false);
-  const [ref] = useIsInView(
+  const cardContainerRef = useRef<null | HTMLDivElement>(null);
+
+  useTilt(cardContainerRef, { multiplierX: 0.2, multiplierY: 0.4 });
+
+  useIsInView(
+    cardContainerRef,
     {
       threshold: 0.15,
     },
@@ -29,9 +35,11 @@ const ProjectCard = ({ project }: Props) => {
   if (isVisible) containerClassName += ` ${styles.visible}`;
 
   return (
-    <article className={containerClassName} ref={ref}>
+    <article className={containerClassName} ref={cardContainerRef}>
       <div className={styles.description}>
-        <h2>{project.name}</h2>
+        <h2>
+          <ExternalLink href={project.link}>{project.name}</ExternalLink>
+        </h2>
         <ul className={styles.tags}>
           {project.tags.map((tag, index) => (
             <li key={index}>{tag}</li>

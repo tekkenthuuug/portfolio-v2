@@ -39,8 +39,6 @@ const Hero = () => {
 
   if (displayScrollMessage) scrollMessageClassName += ` ${styles.visible}`;
 
-  console.log(scrollMessageClassName);
-
   return (
     <section className={`container ${styles['hero-container']}`}>
       <div>

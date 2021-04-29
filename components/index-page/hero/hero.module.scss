@@ -128,17 +128,4 @@ $hidden-clip: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
   font-size: 1.3em;
   margin-top: 4.4rem;
   border-radius: 9px;
-
-  &::after {
-    content: '';
-    z-index: -1;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 9px;
-    border: var(--primary-text) 1px solid;
-    top: 10px;
-    left: 10px;
-    opacity: 0.5;
-  }
 }
