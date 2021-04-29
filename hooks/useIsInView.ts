@@ -3,7 +3,7 @@ import { MutableRefObject, useEffect, useState } from 'react';
 function useIsInView<TElementType extends HTMLElement>(
   elementRef: MutableRefObject<TElementType | null>,
   options: IntersectionObserverInit,
-  callback?: (isInView: boolean) => any
+  onInViewChange?: (isInView: boolean) => any
 ) {
   const [isInView, setIsInView] = useState(false);
 
@@ -11,7 +11,7 @@ function useIsInView<TElementType extends HTMLElement>(
     setIsInView(entries[0].isIntersecting);
   };
 
-  useEffect(() => callback?.(isInView), [isInView]);
+  useEffect(() => onInViewChange?.(isInView), [isInView]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(handleIntersection, options);

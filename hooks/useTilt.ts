@@ -3,11 +3,12 @@ import { MutableRefObject, useEffect } from 'react';
 interface ITiltConfig {
   multiplierX: number;
   multiplierY: number;
+  scale: number;
 }
 
 function useTilt<TElementType extends HTMLElement>(
   ref: MutableRefObject<TElementType | null>,
-  { multiplierX, multiplierY }: ITiltConfig
+  { multiplierX, multiplierY, scale }: ITiltConfig
 ) {
   useEffect(() => {
     const handleMouseMoveOnCard = (e: MouseEvent) => {
@@ -21,7 +22,7 @@ function useTilt<TElementType extends HTMLElement>(
         const degX = (centerY / 100) * multiplierY;
         const degY = (-centerX / 100) * multiplierX;
 
-        ref.current.style.transform = `scale3d(1,1,1) perspective(1000px) rotateY(${degY}deg) rotateX(${degX}deg)`;
+        ref.current.style.transform = `scale(${scale}) perspective(1000px) rotateY(${degY}deg) rotateX(${degX}deg)`;
       }
     };
 

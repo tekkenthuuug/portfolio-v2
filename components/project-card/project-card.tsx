@@ -16,7 +16,11 @@ const ProjectCard = ({ project }: Props) => {
   const [isVisible, setIsVisible] = useState(false);
   const cardContainerRef = useRef<null | HTMLDivElement>(null);
 
-  useTilt(cardContainerRef, { multiplierX: 0.2, multiplierY: 0.4 });
+  useTilt(cardContainerRef, {
+    multiplierX: 0.2,
+    multiplierY: 0.4,
+    scale: 1.01,
+  });
 
   useIsInView(
     cardContainerRef,
