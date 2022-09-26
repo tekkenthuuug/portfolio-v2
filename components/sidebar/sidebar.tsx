@@ -20,9 +20,7 @@ const tabsMap = {
 
 const Sidebar = ({ isOpened, onClose }: Props) => {
   const { t } = useTranslation();
-  const [selectedTab, setSelectedTab] = useState<keyof typeof tabsMap>(
-    'contact'
-  );
+  const [selectedTab, setSelectedTab] = useState<keyof typeof tabsMap>('contact');
   const [isClosing, setIsClosing] = useState(false);
 
   useEffect(() => {
@@ -66,16 +64,10 @@ const Sidebar = ({ isOpened, onClose }: Props) => {
         <div className={styles.container} ref={clickOutsideRef}>
           <MdClose className={styles.close} onClick={handleClose} />
           <ul className={styles.nav}>
-            <li
-              className={getTabClassName('contact')}
-              onClick={() => setSelectedTab('contact')}
-            >
+            <li className={getTabClassName('contact')} onClick={() => setSelectedTab('contact')}>
               {t('common:contact')}
             </li>
-            <li
-              className={getTabClassName('about-me')}
-              onClick={() => setSelectedTab('about-me')}
-            >
+            <li className={getTabClassName('about-me')} onClick={() => setSelectedTab('about-me')}>
               {t('common:about-me')}
             </li>
           </ul>
@@ -84,14 +76,14 @@ const Sidebar = ({ isOpened, onClose }: Props) => {
             <ExternalLink href='https://www.linkedin.com/in/maksim-pautsina/'>
               <img src='/linkedin.svg' />
             </ExternalLink>
-            <ExternalLink href='https://github.com/tekkenthuuug'>
-              <img src='/github.svg' />
-            </ExternalLink>
-            <ExternalLink href='https://www.fiverr.com/tekkenthg'>
-              <img src='./fiverr.svg' />
+            <ExternalLink href='https://www.upwork.com/freelancers/~0108363ce38990de62'>
+              <img src='./upwork.svg' />
             </ExternalLink>
             <ExternalLink href='mailto:maksim.pautsina@gmail.com'>
               <MdEmail />
+            </ExternalLink>
+            <ExternalLink href='https://github.com/tekkenthuuug'>
+              <img src='/github.svg' />
             </ExternalLink>
           </div>
         </div>
